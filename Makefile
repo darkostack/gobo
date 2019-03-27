@@ -13,7 +13,7 @@ Q = @
 endif
 
 # Optimization level
-OPT ?= -O0
+OPT ?= -Os
 
 HOST_MACHINE    = $(shell uname -s)
 HOST_MACHINE_UC = $(shell echo $(HOST_MACHINE) | tr a-z A-Z)
@@ -80,6 +80,9 @@ INC += -I$(TOP)/src
 
 DEF += -DGOBO_PLATFORM_$(shell echo $(PLATFORM) | tr a-z A-Z)
 DEF += -DGOBO_ENABLE_CLI=$(ENABLE_CLI)
+
+DEF += -DPACKAGE_NAME='\"GOBO\"'
+DEF += -DPACKAGE_VERSION='\"$(GIT_REPO_COMMIT)\"'
 
 include $(TOP)/$(PLATFORM_DIR)/inc.mk
 include $(TOP)/$(SRC_DIR)/inc.mk

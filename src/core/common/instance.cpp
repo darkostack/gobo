@@ -62,11 +62,4 @@ exit:
     return;
 }
 
-// NOTE: this use to avoid undefined reference to '__cxa_pure_virtual' when
-// optimization level is 0
-extern "C" void __cxa_pure_virtual(void)
-{
-    while (1);
-}
-
 } // namespace go

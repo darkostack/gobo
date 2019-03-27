@@ -1,14 +1,6 @@
 #ifndef GOBO_CORE_DEFAULT_CONFIG_H_
 #define GOBO_CORE_DEFAULT_CONFIG_H_
 
-#ifndef PACKAGE_NAME
-#define PACKAGE_NAME "gobo"
-#endif
-
-#ifndef PACKAGE_VERSION
-#define PACKAGE_VERSION "0.0.1"
-#endif
-
 // CLI config
 #ifndef GOBO_CONFIG_CLI_MAX_LINE_LENGTH
 #define GOBO_CONFIG_CLI_MAX_LINE_LENGTH 128
