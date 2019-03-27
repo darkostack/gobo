@@ -50,6 +50,7 @@ private:
 
     void ProcessHelp(int argc, char *argv[]);
     void ProcessVersion(int argc, char *argv[]);
+    void ProcessReboot(int argc, char *argv[]);
 
     static Interpreter &GetOwner(OwnerLocator &aOwnerLocator);
 

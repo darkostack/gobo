@@ -17,6 +17,7 @@ namespace Cli {
 const struct Command Interpreter::sCommands[] = {
     {"help", &Interpreter::ProcessHelp},
     {"version", &Interpreter::ProcessVersion},
+    {"reboot", &Interpreter::ProcessReboot},
 };
 
 void goFreeMemory(const void *)
@@ -142,6 +143,9 @@ goError Interpreter::ParseUnsignedLong(char *aString, unsigned long &aUnsignedLo
 
 void Interpreter::ProcessHelp(int argc, char *argv[])
 {
+    GO_UNUSED_VARIABLE(argc);
+    GO_UNUSED_VARIABLE(argv);
+
     for (unsigned int i = 0; i < GO_ARRAY_LENGTH(sCommands); i++)
     {
         mServer->OutputFormat("%s\r\n", sCommands[i].mName);
@@ -151,18 +155,24 @@ void Interpreter::ProcessHelp(int argc, char *argv[])
     {
         mServer->OutputFormat("%s\r\n", mUserCommands[i].mName);
     }
-
-    GO_UNUSED_VARIABLE(argc);
-    GO_UNUSED_VARIABLE(argv);
 }
 
 void Interpreter::ProcessVersion(int argc, char *argv[])
 {
+    GO_UNUSED_VARIABLE(argc);
+    GO_UNUSED_VARIABLE(argv);
+
     goStringPtr version(goGetVersionString());
     mServer->OutputFormat("%s\r\n", (const char *)version);
     AppendResult(GO_ERROR_NONE);
+}
+
+void Interpreter::ProcessReboot(int argc, char *argv[])
+{
     GO_UNUSED_VARIABLE(argc);
     GO_UNUSED_VARIABLE(argv);
+
+    mInstance->Reset();
 }
 
 void Interpreter::ProcessLine(char *aBuf, uint16_t aBufLength, Server &aServer)

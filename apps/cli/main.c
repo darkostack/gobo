@@ -21,6 +21,8 @@ pseudo_reset:
 
     goCliUartInit(sInstance);
 
+    goCliUartOutputFormat("\r\n \r\n CLI is running: type `help` to see available commands\r\n");
+
     while (!goSysPseudoResetWasRequested())
     {
         goTaskletsProcess(sInstance);

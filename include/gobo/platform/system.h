@@ -9,8 +9,6 @@ extern "C" {
 
 void goSysInit(int argc, char *argv[]);
 
-void goSysDeInit(void);
-
 bool goSysPseudoResetWasRequested(void);
 
 void goSysProcessDrivers(goInstance *aInstance);

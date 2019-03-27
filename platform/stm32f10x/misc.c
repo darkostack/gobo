@@ -16,10 +16,8 @@ void goPlatReset(goInstance *aInstance)
 #if GOBO_PLATFORM_USE_PSEUDO_RESET
     gPlatformPseudoResetWasRequested = true;
     sPlatResetReason                 = GO_PLAT_RESET_REASON_SOFTWARE;
-#else
-    goSysDeInit();
     platformUartRestore();
-
+#else
     NVIC_SystemReset();
 #endif
 }

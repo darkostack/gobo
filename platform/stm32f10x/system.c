@@ -22,10 +22,6 @@ bool goSysPseudoResetWasRequested(void)
     return gPlatformPseudoResetWasRequested;
 }
 
-void goSysDeInit(void)
-{
-}
-
 void goSysProcessDrivers(goInstance *aInstance)
 {
     platformUartProcess();
